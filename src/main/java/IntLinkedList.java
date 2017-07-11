@@ -19,6 +19,23 @@ public class IntLinkedList {
         }
     }
 
+    public void removeTail() {
+        if (head == null) { // In the case of empty list
+            return;
+        } else if (head.getNext() == null) { // In the case the list has only 1 element
+            head = null;
+        } else {
+            Node current = head;
+            // Retrieve the second last node of the list
+            while (current.getNext().getNext() != null) {
+                current = current.getNext();
+            }
+
+            // The second last node becomes the last node
+            current.setNext(null);
+        }
+    }
+
     public int size() {
         int size = 0;
         if (head == null) {
