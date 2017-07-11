@@ -51,6 +51,28 @@ public class IntLinkedList {
         return ++size;
     }
 
+    public void removeAllIfGreater(int value) {
+        if (head == null) {
+            return;
+        }
+
+        while (head.getValue() > value) { // If match on first element
+            head = head.getNext();
+            if (head == null) {
+                return;
+            }
+        }
+
+        Node current = head;
+        while (current.getNext() != null) { // If next node exists
+            if (current.getNext().getValue() > value) { // If match at next value
+                current.setNext(current.getNext().getNext());
+            } else { // If not a match
+                current = current.getNext(); // move to next element
+            }
+        }
+    }
+
     private class Node {
         private Node next;
         private int value;

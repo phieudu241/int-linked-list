@@ -24,4 +24,10 @@ public class IntLinkedListTest {
         intLinkedList.removeTail();
         Assert.assertEquals(intLinkedList.size(), 2);
     }
+
+    @Test
+    public void testRemoveAllIfGreater() {
+        intLinkedList.removeAllIfGreater(1);
+        Assert.assertEquals(intLinkedList.size(), 1);
+    }
 }
